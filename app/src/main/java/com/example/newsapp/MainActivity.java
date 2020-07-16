@@ -1,102 +1,52 @@
 package com.example.newsapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.TextView;
+import android.view.MenuItem;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.net.URL;
-import java.util.ArrayList;
-
-import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-//    private TextView mTextViewResult;
-//    private ImageView iv;
-//    private RequestQueue mReqQ;
 
-    RecyclerView rv;
-    ExampleAdapter ea;
-    ArrayList<Ex_top_news> mList;
-    RequestQueue mReqQ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        mTextViewResult=findViewById(R.id.text);
-//        iv=findViewById(R.id.iv);
-//        Button b = findViewById(R.id.button);
-//
-//        mReqQ= Volley.newRequestQueue(this);
-//        jsonClick();
-        rv=findViewById(R.id.rv);
-        rv.setHasFixedSize(true);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        mList=new ArrayList<>();
-        mReqQ=Volley.newRequestQueue(this);
-        jsonClick();
+        BottomNavigationView bottomNav=findViewById(R.id.nav);
+        bottomNav.setOnNavigationItemSelectedListener(list);
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.frame,
+                    new frag1()).commit();
+        }
     }
+    private BottomNavigationView.OnNavigationItemSelectedListener  list =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item)
+                {
+                    Fragment selectedFrag=null;
 
-
-    private void jsonClick(){
-        String url= "https://newsapi.org/v2/top-headlines?country=us&apiKey=afcdb79c38d347b58105f5b408359ce3";
-        JsonObjectRequest jor=new JsonObjectRequest(Request.Method.GET,
-                url,
-                null,
-                new Response.Listener<JSONObject>(){
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            //JSONObject result=response.getJSONObject("cases_time_series");
-                            JSONArray jarr=response.getJSONArray("articles");
-                            for(int i=0;i<jarr.length();i++)
-                            {
-                                JSONObject jobj=jarr.getJSONObject(i);
-                                String author=jobj.getString("author");
-                                String Title=jobj.getString("title");
-                                String desc=jobj.getString("description");
-                                String imgUrl=jobj.getString("url");
-
-                                Title.toUpperCase();
-                                author.toUpperCase();
-                                mList.add(new Ex_top_news(Title,desc,imgUrl));
-                            }
-                            ea=new ExampleAdapter(MainActivity.this,mList);
-                            rv.setAdapter(ea);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+                    switch(item.getItemId())
+                    {
+                        case R.id.page_1:
+                            selectedFrag=new frag1();
+                            break;
+                        case R.id.page_2:
+                            selectedFrag=new frag2();
+                            break;
+                        case R.id.page_3:
+                            selectedFrag=new frag3();
+                            break;
                     }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,selectedFrag).commit();
+                    return true;
 
-                },
-                new Response.ErrorListener(){
-
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-        mReqQ.add(jor);
-    }
+                }
+            };
 
 }
