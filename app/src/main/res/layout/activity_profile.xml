@@ -28,7 +28,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
+        android:imeOptions="actionNext"
 
+        android:onClick="editName"
         android:fontFamily="@font/adamina"
         android:text="Saakshi navale"
         android:textColor="#880E4F"
@@ -75,25 +77,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-
+        android:onClick="editLocation"
         android:layout_marginTop="40dp"
         android:text="Bangalore"
+        android:imeOptions="actionNext"
 
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/email" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/photoHolder"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:clickable="true"
-        app:backgroundTint="#ffffff"
-        app:layout_constraintBottom_toTopOf="@+id/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/rounded_border" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit"
@@ -112,7 +103,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="48dp"
-
+        android:imeOptions="actionNext"
+        android:onClick="editPhone"
         android:ems="10"
         android:inputType="phone"
         android:text="79966576476"
@@ -125,21 +117,44 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
         android:layout_marginTop="40dp"
-        android:background="@android:color/transparent"
         android:ems="10"
+        android:imeOptions="actionNext"
+        android:onClick="editEmail"
         android:inputType="textEmailAddress"
         android:text="saakshi@gmail.com"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:cardCornerRadius="85dp"
+        android:layout_marginLeft="122dp"
+        android:layout_marginTop="100dp"
+        android:onClick="onCreateDialog"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="168dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#ffffff">
+
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="60dp"
+            android:layout_marginTop="20dp"
+
+            android:layout_marginLeft="25dp">
+
+            <ImageView
+                android:id="@+id/profilepic"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/dog2" />
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,28 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".topStories">
+    tools:context=".YourStories">
 
     <EditText
         android:id="@+id/et1"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#880E4F"
         android:hint="Enter your preference.." />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/search"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="13dp"
-        android:src="@drawable/search" />
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="11dp"
+        android:onClick="searchStart"
+        android:src="@drawable/ysearch"></ImageView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:background="#ffffff" />
 
 </RelativeLayout>
