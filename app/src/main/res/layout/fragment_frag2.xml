@@ -26,9 +26,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="11dp"
-        android:onClick="searchStart"
         android:src="@drawable/ysearch"
-        tools:ignore="OnClick"></ImageView>
+        android:onClick="startSearch"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"

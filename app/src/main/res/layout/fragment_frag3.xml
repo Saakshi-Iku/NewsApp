@@ -8,14 +8,15 @@
     android:fadingEdge="horizontal|vertical"
     android:fadingEdgeLength="3dp"
     android:orientation="vertical"
+    android:layout_marginBottom="50dp"
     tools:context=".Profile">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="208dp"
+        android:layout_height="188dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/bg4"
+        android:src="@drawable/bg6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -29,12 +30,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
         android:imeOptions="actionNext"
-
-        android:onClick="editName"
         android:fontFamily="@font/adamina"
         android:text="Saakshi navale"
+        android:background="@android:color/transparent"
+        android:enabled="false"
         android:textColor="#880E4F"
         android:textSize="30sp"
+        android:clickable="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +48,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/email1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -67,7 +69,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/loc1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -77,11 +79,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:onClick="editLocation"
         android:layout_marginTop="40dp"
-        android:text="Bangalore"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:enabled="false"
         android:imeOptions="actionNext"
-
+        android:text="Bangalore"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/imageView6"
         app:layout_constraintTop_toBottomOf="@+id/email" />
@@ -91,7 +95,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:clickable="true"
-        android:onClick="EditNow"
+
         app:backgroundTint="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +108,10 @@
         android:layout_marginStart="88dp"
         android:layout_marginTop="48dp"
         android:imeOptions="actionNext"
-        android:onClick="editPhone"
+        android:textColor="@android:color/black"
+        android:background="@android:color/transparent"
+        android:clickable="false"
+        android:enabled="false"
         android:ems="10"
         android:inputType="phone"
         android:text="79966576476"
@@ -116,12 +123,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="52dp"
+        android:background="@android:color/transparent"
+        android:clickable="false"
         android:ems="10"
+        android:enabled="false"
         android:imeOptions="actionNext"
-        android:onClick="editEmail"
         android:inputType="textEmailAddress"
         android:text="saakshi@gmail.com"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
@@ -131,8 +141,8 @@
         android:layout_height="170dp"
         app:cardCornerRadius="85dp"
         android:layout_marginLeft="122dp"
-        android:layout_marginTop="100dp"
-        android:onClick="onCreateDialog"
+        android:layout_marginTop="80dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:backgroundTint="#ffffff">

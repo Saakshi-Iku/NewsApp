@@ -118,10 +118,9 @@ public class YourStories extends AppCompatActivity {
     }
 
 
-    public void searchStart(View view) {
-        searchEle=et.getText().toString().trim();
-        setContentView(R.layout.activity_your_stories);
-        jsonClick();
-
-    }
+//    public void searchStart(View view) {
+//        searchEle=et.getText().toString().trim();
+//        setContentView(R.layout.activity_your_stories);
+//        jsonClick();
+//    }
 }

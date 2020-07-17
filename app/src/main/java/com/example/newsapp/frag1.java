@@ -49,14 +49,19 @@ public class frag1 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //v=getView();
         View rootView=inflater.inflate(R.layout.fragment_frag1, container, false);
-        rv=rootView.findViewById(R.id.rv);
+
+        return rootView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        rv=view.findViewById(R.id.rv);
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
         mList=new ArrayList<>();
 
         mReqQ=Volley.newRequestQueue(getActivity());
         jsonClick();
-        return rootView;
     }
 
     @Override
